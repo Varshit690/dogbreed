@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Dog Breed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-inner">
+            <div class="logo">DOG BREED.</div>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="/#about">About</a>
+                <a href="/contact">Contact</a>
+            </nav>
+            <div class="inspect-wrap">
+                <a href="#" class="btn-inspect">Inspect</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="predict-main">
+        <div class="container">
+            <h1>Predict Dog Breed</h1>
+            <form action="/result" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" required>
+                <button type="submit">Predict Breed</button>
+            </form>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

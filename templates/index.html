@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breed Identification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="site-inner">
+            <div class="logo">DOG BREED.</div>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="#about">About</a>
+                <a href="/contact">Contact</a>
+            </nav>
+            <div class="inspect-wrap">
+                <a href="#" class="btn-inspect">Inspect</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="hero" style="background-image: url('{{ url_for('static', filename='images/hero.jpg') }}');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Dog Breed Identification</h1>
+            <p class="subtitle">Identification of Different Dog Breeds</p>
+            <a href="#predict" class="btn-predict">Get Started</a>
+        </div>
+    </main>
+
+    <section id="about" class="about">
+        <div class="about-inner">
+            <div class="about-left">
+                <h3 class="gallery-title">Dog Breeds Gallery</h3>
+                <div class="breed-gallery">
+                    <!-- 9 Dog Breed Cards -->
+                    <div class="breed-card">
+                        <img src="{{ url_for('static', filename='images/breeds/beagle.jpg') }}" alt="Beagle">
+                        <div class="breed-card-name">Beagle</div>
+                    </div>
+                    <div class="breed-card">
+                        <img src="{{ url_for('static', filename='images/breeds/pug.jpg') }}" alt="Pug">
+                        <div class="breed-card-name">Pug</div>
+                    </div>
+                    <div class="breed-card">
+                        <img src="{{ url_for('static', filename='images/breeds/golden_retriever.jpg') }}" alt="Golden Retriever">
+                        <div class="breed-card-name">Golden Retriever</div>
+                    </div>
+                    <div class="breed-card">
+                        <img src="{{ url_for('static', filename='images/breeds/labrador.jpg') }}" alt="Labrador">
+                        <div class="breed-card-name">Labrador</div>
+                    </div>
+                    <div class="breed-card">
+                        <img src="{{ url_for('static', filename='images/breeds/german_shepherd.jpg') }}" alt="German Shepherd">
+                        <div class="breed-card-name">German Shepherd</div>
+                    </div>
+                    <div class="breed-card">
+                        <img src="{{ url_for('static', filename='images/breeds/bulldog.jpg') }}" alt="Bulldog">
+                        <div class="breed-card-name">Bulldog</div>
+                    </div>
+                    <div class="breed-card">
+                        <img src="{{ url_for('static', filename='images/breeds/rottweiler.jpg') }}" alt="Rottweiler">
+                        <div class="breed-card-name">Rottweiler</div>
+                    </div>
+                    <div class="breed-card">
+                        <img src="{{ url_for('static', filename='images/breeds/doberman.jpg') }}" alt="Doberman">
+                        <div class="breed-card-name">Doberman</div>
+                    </div>
+                    <div class="breed-card">
+                        <img src="{{ url_for('static', filename='images/breeds/husky.jpg') }}" alt="Husky">
+                        <div class="breed-card-name">Husky</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-right">
+                <div class="step">
+                    <div class="icon">📁</div>
+                    <div class="step-body">
+                        <h4>Data Preparation:</h4>
+                        <p>The first step is to prepare the data for the CNN, including cleaning, splitting into
+                            train/validation/test, and applying augmentations.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="icon">🧱</div>
+                    <div class="step-body">
+                        <h4>Model Building</h4>
+                        <p>We build the model using VGG19, remove the top, add dense layers, and compile with an
+                            appropriate loss and optimizer.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="icon">⚙️</div>
+                    <div class="step-body">
+                        <h4>Model Training & Evaluation</h4>
+                        <p>Train the model on prepared datasets, monitor metrics, and evaluate on the test set to verify
+                            performance.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="icon">🚀</div>
+                    <div class="step-body">
+                        <h4>Model Deployment</h4>
+                        <p>Deploy the trained model so it can be used in real-world applications through the Flask app's
+                            predict endpoint.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="predict" class="predict-section">
+        <div class="predict-inner">
+            <div class="upload-left">
+                <h3>Upload an image to identify the dog breed</h3>
+                <form method="post" action="/result" enctype="multipart/form-data">
+                    <input type="file" name="file" id="imageInput" accept="image/*" required>
+                    <div class="preview-wrap">
+                        <img id="previewImage" src="" alt="Preview" style="display:none;" />
+                    </div>
+                    <button type="submit" class="btn-predict">Predict</button>
+                </form>
+            </div>
+            <div class="upload-right">
+                <h4>Tips</h4>
+                <ul>
+                    <li>Use a clear photo of the dog with the face visible.</li>
+                    <li>Images will be resized to 128×128 before prediction.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

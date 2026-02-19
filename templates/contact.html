@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Dog Breed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+<body>
+    <header class="site-header">
+        <div class="site-inner">
+            <div class="logo">DOG BREED.</div>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="/#about">About</a>
+                <a href="#">Contact</a>
+            </nav>
+            <div class="inspect-wrap">
+                <a href="#" class="btn-inspect">Inspect</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="contact-main">
+        <div class="contact-inner">
+            <div class="contact-left">
+                <h2>CONTACT US</h2>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Location:</h4>
+                        <p>Chaturmukha medicals<br>Main road<br>Near Vishnu Institute of Technology<br>Near Vikranth Family Restaurant<br>Bhimavaram<br>534202</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h4>Email:</h4>
+                        <p>peelavarshit@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h4>Call:</h4>
+                        <p>9618258987</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-right">
+                {% if submitted %}
+                    <div class="submitted">Thanks — your message has been received.</div>
+                {% endif %}
+                <form method="post" action="/contact">
+                    <div class="row">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <input type="text" name="subject" placeholder="Subject">
+                    <textarea name="message" rows="6" placeholder="Message"></textarea>
+                    <button type="submit" class="btn-send">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

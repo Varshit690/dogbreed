@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="site-inner">
+        <div class="logo">DOG BREED.</div>
+        <nav class="site-nav">
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+        <div class="inspect-wrap">
+            <a href="#" class="btn-inspect">Inspect</a>
+        </div>
+    </div>
+</header>
+
+<main class="result-main">
+    <div class="container">
+        <h1>Prediction Result</h1>
+
+        <div class="result-container">
+            <img src="/{{ image_path }}" alt="Uploaded Image" class="result-image">
+
+            <div class="prediction-result">
+
+                {% if no_dog %}
+                    <h2>No dog found in this picture</h2>
+                    <p>Please try another image that clearly shows a dog.</p>
+
+                {% else %}
+                    <!-- Main Prediction Answer -->
+                    <div class="main-answer">
+                        <h2 class="answer-text">{{ prediction }}</h2>
+                    </div>
+
+                    <!-- Confidence Section -->
+                    {% if confidence %}
+                        <div class="confidence-section">
+                            <div class="confidence-label">Confidence Score</div>
+                            <div class="confidence-value">{{ confidence }}%</div>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" style="width: {{ confidence }}%;"></div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <!-- Similar Breeds Section -->
+                    {% if not high_confidence and similar_breeds %}
+                        <div class="similar-section">
+                            <h3>Similar Dog Breeds</h3>
+                            <div class="similar-list">
+                                {% for breed, conf in similar_breeds %}
+                                    <div class="similar-item">
+                                        <span class="breed-name-similar">{{ breed }}</span>
+                                        <span class="breed-conf">{{ conf }}%</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                {% endif %}
+
+            </div>
+        </div>
+
+        <a href="/predict" class="btn-back">Try Another Image</a>
+    </div>
+</main>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
