@@ -1,28 +1,27 @@
-🐶 Dog Breed Identification
-Dog Breed Identification is a web-based application built using Flask that allows users to identify different dog breeds through an interactive interface.
+🐶 Dog Breed Identification Using Transfer Learning
+📌 Project Overview
 
-The application enables users to select or upload a dog image and receive the predicted breed as output.
+The Dog Breed Identification using Transfer Learning project is a deep learning-based web application that classifies dog breeds from images.
 
-🚀 Features
-Upload dog images
-Predict dog breed
-Clean and responsive UI
-Multiple breed categories supported
-🛠 Tech Stack
+This system uses the pre-trained VGG19 convolutional neural network model with ImageNet weights and applies transfer learning to classify dog images into multiple breed categories.
+
+The trained model is integrated with a Flask web application, allowing users to upload an image and receive a predicted dog breed.
+
+🎯 Objectives
+
+Understand the fundamentals of Convolutional Neural Networks (CNNs)
+Implement Transfer Learning using VGG19
+Perform image preprocessing using ImageDataGenerator
+Build and train a deep learning model
+Deploy the model using a Flask web application
+Predict dog breeds from uploaded images
+
+🧠 Technologies Used
+
 Python
+TensorFlow
+Keras
+VGG19 (Pre-trained on ImageNet)
 Flask
+NumPy
 HTML
-CSS
-JavaScript
-📦 Installation
-Clone the repository: git clone https://github.com/Varshit690/DogBreedidentification.git
-
-Navigate into the folder: cd DogBreedidentification
-
-Install dependencies: pip install -r requirements.txt
-
-Run the application: python app.py
-
-📌 Future Improvements
-Integrate CNN-based deep learning model
-Deploy o
